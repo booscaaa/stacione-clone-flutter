@@ -1,117 +1,4 @@
-// import 'package:flutter/material.dart';
-// import 'package:lottie/lottie.dart';
-// import 'package:stacione/constants.dart';
-
-// class IndexPage extends StatefulWidget {
-//   @override
-//   _IndexPageState createState() => _IndexPageState();
-// }
-
-// class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
-//   AnimationController _controller;
-
-//   @override
-//   void initState() {
-//     // TODO: implement initState
-//     super.initState();
-
-//     _controller = AnimationController(vsync: this);
-//   }
-
-//   @override
-//   void dispose() {
-//     _controller.dispose();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         child: Stack(
-//       children: <Widget>[
-//         Positioned(
-//           top: 0,
-//           left: 0,
-//           right: 0,
-//           bottom: 0,
-//           child: Image.asset(
-//             'images/index.jpg',
-//             fit: BoxFit.cover,
-//           ),
-//         ),
-//         Positioned(
-//             top: 0,
-//             left: 0,
-//             right: 0,
-//             bottom: 0,
-//             child: Scaffold(
-//               backgroundColor: Color(0xff0071AC).withOpacity(.3),
-//               body: Container(
-//                 padding: EdgeInsets.symmetric(horizontal: 20),
-//                 width: double.infinity,
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.center,
-//                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                   children: <Widget>[
-
-//                     Container(
-//                         margin: EdgeInsets.only(top: 70),
-//                         height: 140,
-//                         child: Image.asset(
-//                           'images/stacione.png',
-//                           fit: BoxFit.cover,
-//                         )),
-//                     Column(
-//                       crossAxisAlignment: CrossAxisAlignment.center,
-//                       mainAxisAlignment: MainAxisAlignment.end,
-//                       children: <Widget>[
-//                         Container(
-//                             margin: EdgeInsets.symmetric(vertical: 5),
-//                             height: 50,
-//                             width: double.infinity,
-//                             child: RaisedButton(
-//                               color: Color(0xff0071AC),
-//                               textColor: Colors.white,
-//                               child: Text('Logar'),
-//                               onPressed: () {
-//                                 Navigator.pushNamed(context, loginRoute);
-//                               },
-//                             )),
-//                         Container(
-//                             margin: EdgeInsets.symmetric(vertical: 5),
-//                             height: 50,
-//                             width: double.infinity,
-//                             child: new OutlineButton(
-//                                 highlightedBorderColor: Colors.white,
-//                                 textColor: Colors.white,
-//                                 child: Text("Ticket Avulso"),
-//                                 borderSide: BorderSide(
-//                                     color: Colors.white,
-//                                     style: BorderStyle.solid,
-//                                     width: 1),
-//                                 onPressed: () {
-//                                   // Navigator.pushNamed(context);
-//                                 })),
-//                         Container(
-//                             margin: EdgeInsets.symmetric(vertical: 10),
-//                             height: 50,
-//                             child: Text(
-//                               'Criar conta',
-//                               style: TextStyle(color: Colors.white),
-//                             ))
-//                       ],
-//                     )
-//                   ],
-//                 ),
-//               ),
-//             ))
-//       ],
-//     ));
-//   }
-// }
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
 class IndexPage extends StatefulWidget {
@@ -150,7 +37,7 @@ class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
         parent: carroController,
         curve: new Interval(
           0.0,
-          0.4,
+          0.6,
         ),
       ),
     );
@@ -266,17 +153,19 @@ class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
                         bottom: container.value + fanim.value + 200,
                         child: Container(
                             height: 50,
+                            child: Opacity(
+                            opacity: logo.value,
                             child: new OutlineButton(
                                 highlightedBorderColor: Colors.white,
                                 textColor: Colors.white,
-                                child: Text("Ticket Avulso"),
+                                child: Text("Login"),
                                 borderSide: BorderSide(
                                     color: Colors.white,
                                     style: BorderStyle.solid,
                                     width: 1),
                                 onPressed: () {
                                   // Navigator.pushNamed(context);
-                                }))),
+                                })))),
                     Positioned(
                       left: carro.value,
                       bottom: 70 + fanim.value,
