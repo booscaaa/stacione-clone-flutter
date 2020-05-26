@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
 
@@ -33,6 +34,7 @@ abstract class _LoginAnimation with Store {
   Animation<double> angle;
   Animation<double> carWith;
   Animation<double> buildHeigth;
+  Animation<Color> containerColor;
 
   @action
   init(state) {
@@ -43,8 +45,8 @@ abstract class _LoginAnimation with Store {
     controller =
         AnimationController(vsync: state, duration: Duration(seconds: 3));
 
-    formController =
-        AnimationController(vsync: state, duration: Duration(milliseconds: 300));
+    formController = AnimationController(
+        vsync: state, duration: Duration(milliseconds: 300));
 
     _initController();
   }
@@ -66,8 +68,7 @@ abstract class _LoginAnimation with Store {
       ),
     );
 
-    moveUp =
-        Tween<double>(begin: moveUp.value, end: 300).animate(
+    moveUp = Tween<double>(begin: moveUp.value, end: 300).animate(
       new CurvedAnimation(
         parent: formController,
         curve: new Interval(
@@ -77,9 +78,27 @@ abstract class _LoginAnimation with Store {
       ),
     );
 
+    buildHeigth = Tween<double>(begin: 300, end: 200).animate(
+      new CurvedAnimation(
+        parent: formController,
+        curve: new Interval(
+          0.0,
+          1.0,
+        ),
+      ),
+    );
 
-    buildHeigth =
-        Tween<double>(begin: 300, end: 200).animate(
+    carWith = Tween<double>(begin: 250, end: 200).animate(
+      new CurvedAnimation(
+        parent: formController,
+        curve: new Interval(
+          0.0,
+          1.0,
+        ),
+      ),
+    );
+
+     containerColor = ColorTween(begin: Color(0xff0071AC), end: Colors.grey.withOpacity(.2)).animate(
       new CurvedAnimation(
         parent: formController,
         curve: new Interval(
@@ -98,7 +117,7 @@ abstract class _LoginAnimation with Store {
   }
 
   _initController() {
-    container = Tween<double>(begin: -3000, end: -535).animate(
+    container = Tween<double>(begin: -3000, end: -520).animate(
       new CurvedAnimation(
         parent: controller,
         curve: new Interval(
@@ -155,6 +174,6 @@ abstract class _LoginAnimation with Store {
 
   Future _c() async {
     await Future.delayed(const Duration(milliseconds: 2600));
-    carController.stop();
+    // carController.stop();
   }
 }
