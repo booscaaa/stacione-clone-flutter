@@ -68,7 +68,7 @@ abstract class _LoginAnimation with Store {
       ),
     );
 
-    moveUp = Tween<double>(begin: moveUp.value, end: 300).animate(
+    moveUp = Tween<double>(begin: moveUp.value, end: 500).animate(
       new CurvedAnimation(
         parent: formController,
         curve: new Interval(
@@ -117,7 +117,7 @@ abstract class _LoginAnimation with Store {
   }
 
   _initController() {
-    container = Tween<double>(begin: -3000, end: -520).animate(
+    container = Tween<double>(begin: -3000, end: -750).animate(
       new CurvedAnimation(
         parent: controller,
         curve: new Interval(

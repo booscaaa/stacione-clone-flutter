@@ -158,7 +158,7 @@ class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
                           left: 30,
                           right: 30,
                           bottom: loginAnimation.containerElevation +
-                              (loginAnimation.moveUp.value * 4.3),
+                              (loginAnimation.moveUp.value * 5.9),
                           child: !loginAnimation.showForm
                               ? Container(
                                   height: 50,

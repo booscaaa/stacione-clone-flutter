@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   padding: EdgeInsets.all(2.0),
                   width: 60.0,
                   height: 60.0,
-                  child: InkWell(
+                  child: GestureDetector(
                     child: Container(
                         child: Icon(
                           Icons.add,
