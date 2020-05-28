@@ -37,7 +37,7 @@ abstract class _LoginAnimation with Store {
   Animation<Color> containerColor;
 
   @action
-  init(state) {
+  init(state, BuildContext context) {
     carController = AnimationController(vsync: state);
 
     buildController = AnimationController(vsync: state);
@@ -48,15 +48,16 @@ abstract class _LoginAnimation with Store {
     formController = AnimationController(
         vsync: state, duration: Duration(milliseconds: 300));
 
-    _initController();
+
+    _initController(context);
   }
 
   @action
-  login() {
-    _formController();
+  login(BuildContext context) {
+    _formController(context);
   }
 
-  _formController() {
+  _formController(BuildContext context) {
     this.showForm = true;
     angle = Tween<double>(begin: -0.12, end: 0).animate(
       new CurvedAnimation(
@@ -68,7 +69,7 @@ abstract class _LoginAnimation with Store {
       ),
     );
 
-    moveUp = Tween<double>(begin: moveUp.value, end: 500).animate(
+    moveUp = Tween<double>(begin: moveUp.value, end: MediaQuery.of(context).size.height * 0.43).animate(
       new CurvedAnimation(
         parent: formController,
         curve: new Interval(
@@ -98,7 +99,9 @@ abstract class _LoginAnimation with Store {
       ),
     );
 
-     containerColor = ColorTween(begin: Color(0xff0071AC), end: Colors.grey.withOpacity(.2)).animate(
+    containerColor =
+        ColorTween(begin: Color(0xff0071AC), end: Colors.grey.withOpacity(.2))
+            .animate(
       new CurvedAnimation(
         parent: formController,
         curve: new Interval(
@@ -116,8 +119,10 @@ abstract class _LoginAnimation with Store {
     formController.forward();
   }
 
-  _initController() {
-    container = Tween<double>(begin: -3000, end: -750).animate(
+  _initController(BuildContext context) {
+    container = Tween<double>(
+            begin: -3000, end: - MediaQuery.of(context).size.height * 0.75)
+        .animate(
       new CurvedAnimation(
         parent: controller,
         curve: new Interval(

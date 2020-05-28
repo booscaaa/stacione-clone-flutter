@@ -11,15 +11,20 @@ class IndexPage extends StatefulWidget {
 
 class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
   final loginAnimation = LoginAnimation();
+  bool first = false;
 
   @override
   void initState() {
     super.initState();
-    loginAnimation.init(this);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (!first) {
+      loginAnimation.init(this, context);
+      first = !first;
+    }
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
@@ -42,7 +47,8 @@ class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
                                   child: Image.asset('images/stacione.webp')))),
                       Positioned(
                           right: !loginAnimation.showForm ? -150 : -90,
-                          bottom: 140 + loginAnimation.moveUp.value,
+                          bottom: MediaQuery.of(context).size.height * 0.244 +
+                              loginAnimation.moveUp.value,
                           child: Container(
                               height: !loginAnimation.showForm
                                   ? 300
@@ -158,7 +164,7 @@ class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
                           left: 30,
                           right: 30,
                           bottom: loginAnimation.containerElevation +
-                              (loginAnimation.moveUp.value * 5.9),
+                              MediaQuery.of(context).size.height * 0.92,
                           child: !loginAnimation.showForm
                               ? Container(
                                   height: 50,
@@ -173,13 +179,14 @@ class _IndexPageState extends State<IndexPage> with TickerProviderStateMixin {
                                               style: BorderStyle.solid,
                                               width: 1),
                                           onPressed: () {
-                                            this.loginAnimation.login();
+                                            this.loginAnimation.login(context);
                                             // Navigator.pushNamed(context);
                                           })))
                               : Container()),
                       Positioned(
                         left: loginAnimation.car.value,
-                        bottom: 90 + loginAnimation.moveUp.value,
+                        bottom: MediaQuery.of(context).size.height * 0.19 +
+                            loginAnimation.moveUp.value,
                         child: Container(
                             height: 150,
                             width: !loginAnimation.showForm

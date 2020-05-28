@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stacione/app/page/home.dart';
 import 'package:stacione/app/page/index.dart';
-import 'package:stacione/app/page/login.dart';
 import 'package:stacione/constants.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case loginRoute:
-        return SlideRightRoute(widget: LoginPage());
       case homeRoute:
         return SlideRightRoute(widget: HomePage());
       default:

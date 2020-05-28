@@ -20,20 +20,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       appBar: AppBar(
         title: Text('Stacione - Marau'),
         bottom: PreferredSize(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.drive_eta,
-                color: Colors.white,
-              ),
-              Text('WWW-1010',
-                  style: TextStyle(
+          child: Padding(
+              padding: EdgeInsets.only(bottom: 20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    Icons.drive_eta,
                     color: Colors.white,
-                  )),
-            ],
-          ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                  ),
+                  Text('WWW-1010',
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
+                ],
+              )),
           preferredSize: Size.fromHeight(50.0),
         ),
       ),
@@ -61,7 +66,48 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       body: Container(
         child: TabBarView(
           controller: homeController.tabController,
-          children: <Widget>[Text('asdsad'), Text('asdsad')],
+          children: <Widget>[
+            ListView(
+              children: <Widget>[
+                Container(
+                    height: 200,
+                    child: Card(
+                      child: Center(
+                        child: Text('Ticket1'),
+                      ),
+                    )),
+                Container(
+                    height: 200,
+                    child: Card(
+                      child: Center(
+                        child: Text('Ticket2'),
+                      ),
+                    )),
+                Container(
+                    height: 200,
+                    child: Card(
+                      child: Center(
+                        child: Text('Ticket3'),
+                      ),
+                    )),
+                Container(
+                    height: 200,
+                    child: Card(
+                      child: Center(
+                        child: Text('Ticket4'),
+                      ),
+                    )),
+                Container(
+                    height: 200,
+                    child: Card(
+                      child: Center(
+                        child: Text('Ticket5'),
+                      ),
+                    )),
+              ],
+            ),
+            Text('Infos')
+          ],
         ),
       ),
       bottomNavigationBar: BottomAppBar(

@@ -74,22 +74,22 @@ mixin _$LoginAnimation on _LoginAnimation, Store {
       ActionController(name: '_LoginAnimation');
 
   @override
-  dynamic init(dynamic state) {
+  dynamic init(dynamic state, BuildContext context) {
     final _$actionInfo = _$_LoginAnimationActionController.startAction(
         name: '_LoginAnimation.init');
     try {
-      return super.init(state);
+      return super.init(state, context);
     } finally {
       _$_LoginAnimationActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  dynamic login() {
+  dynamic login(BuildContext context) {
     final _$actionInfo = _$_LoginAnimationActionController.startAction(
         name: '_LoginAnimation.login');
     try {
-      return super.login();
+      return super.login(context);
     } finally {
       _$_LoginAnimationActionController.endAction(_$actionInfo);
     }
